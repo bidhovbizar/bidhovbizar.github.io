@@ -1,0 +1,183 @@
+# jemdoc: menu{MENU}{index.html}
+= Parimal Parag
+
+#[img{200}{}{Parimal Parag} images/PP.jpeg]
+
+~~~
+{}{img_left}{./images/PP.jpeg}{Parimal Parag}{200}{}{}
+Assistant Professor\n
+[http://ece.iisc.ac.in/ Department of ECE]\n
+[http://iisc.ac.in/ Indian Institute of Science]\n
+EC 2.17\n
+Bengaluru 560 012
+
+Email: firstname@iisc.ac.in\n
+Tele: \+91 80 2293 2279 \n
+Fax:  \+91 80 2360 0563
+~~~
+
+== News
+~~~
+- +Jun 21, 2020+: Paper co-authored by Sarat and J-F accepted at IEEE TCOM.
+- +Apr 07, 2020+: Paper co-authored by Rawad and Salim accepted at IEEE TCOM.
+- +Mar 31, 2020+: Paper co-authored by Rooji and Himanshu accepted at ISIT 2020.
+- +Mar 30, 2020+: Paper co-authored by Ashok, Chandramani, and Siva accepted at WiOpt 2020. 
+- +Mar 01, 2020+: Paper co-authored by Prathamesh and Himanshu accepted at IEEE TIT. 
+- +Feb 11, 2020+: Invited talk by Rooji at Networks seminar. 
+- +Jan 24, 2020+: Paper co-authored by Serge et al accepted at ICASSP 2020. 
+- +Jan 22, 2020+: Paper co-authored by Ajay and Vaneet accepted at IEEE TNET.
+- +Jan 16, 2020+: [https://ece.iisc.ac.in/~5G-Testbed/jobs.html Open positions] for project associates in 5G testbed project.
+- +Jan 14, 2020+: Invited talk by Ajay at Networks seminar. 
+- +Jan 07, 2020+: Paper co-authored by Pratik et al accepted at NCC 2020.
+- +Jan 06, 2020+: Invited talk at [http://www.tcs.tifr.res.in/bits/ BITS 2020].
+- +Jan 01, 2020+: Teaching [spqt.html E2.204 Stochastic Processes and Queueing Theory].
+- [./news.html Past news]
+~~~
+
+== Short Bio
+
+Parimal Parag is currently an assistant professor in the department of electrical communication engineering at Indian Institute of Science at Bengaluru. 
+He is also a member of the [http://iisc.ac.in/analysis-and-probability-research-group/ applied probability research group], 
+faculty participant at [http://www.rbccps.org/ Robert Bosch centre for cyber-physical systems], 
+and co-convenor of the [https://cni.iisc.ac.in/ Cisco center for networked intelligence].
+He was working as senior systems engineer in R&D at [http://www.assia-inc.com/ ASSIA Inc.] from October 2011 to November 2014. 
+He received his B. Tech. and M. Tech. degrees from [https://www.iitm.ac.in/ Indian Institute of Technology Madras] in fall 2004; 
+and the PhD degree from [http://www.tamu.edu Texas A&M University] in fall 2011. 
+He was at [http://www.stanford.edu Stanford University] and [http://www.lanl.gov Los Alamos National Laboratory], 
+in the autumn of 2010 and the summer of 2007, 
+respectively. 
+
+He conducts research in network theory, applied probability, optimization methods, and in their applications to distributed systems. 
+His previous work includes performance evaluation, monitoring, and control of large broadband communication systems and networks. 
+His other research interests lie in the areas of game theory, statistical signal processing, queueing theory, information theory, estimation \& detection theory, combinatorics, and probability theory.
+
+[resume/IIScCV.pdf Curriculum Vitae]
+
+== Recent Publications
+
+=== Journal Articles
+
+- S.~C.~Bobbili, 
+P.~Parag, and 
+[http://ece.tamu.edu/~chmbrlnd/ J.-F.~Chamberland].
+Real-time status updates with perfect feedback over erasure channels.
+/IEEE Transactions on Communications/. 
+[https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber= ieeexplore].
+[papers/2020/tcom-2.pdf paper].
+
+
+- R.~Bitar, 
+P.~Parag, and 
+[http://eceweb1.rutgers.edu/~csi/ S.~El~Rouayheb].
+Minimizing latency for secure coded computing using secret sharing via staircase codes.
+/IEEE Transactions on Communications/. 
+[https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9069916 ieeexplore].
+[papers/2020/tcom-1.pdf paper].
+
+- P.~Mayekar,  
+P.~Parag, 
+and [https://ece.iisc.ac.in/~htyagi H.~Tyagi].
+Optimal lossless source codes for timely updates. 
+/IEEE Transactions on Information Theory/.
+66(6):3714--3731, Jun 2020. 
+[https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9046864 ieeexplore].
+[papers/2020/tit.pdf paper].
+
+- A.~Badita, 
+P.~Parag, 
+and [https://web.ics.purdue.edu/~vaneet/ V.~Aggarwal].
+Optimal server selection for straggler mitigation. 
+/IEEE\/ACM Transactions on Networking/.
+28(2):709--721, Apr 2020.
+#[https://ieeexplore.ieee.org/document/9018098 ieeexplore].
+[https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9018098 ieeexplore].
+[https://ieeexplore.ieee.org/ielx7/90/4359146/9018098/supp1-2973224.pdf?tp=&arnumber=9018098 appendix].
+[papers/2020/tnet.pdf paper].
+
+
+=== Conference Proceedings
+- R.~Jinan, 
+P.~Parag, and 
+[https://ece.iisc.ac.in/~htyagi H.~Tyagi].
+Tracking an auto-regressive process with limited communication. 
+/IEEE International Symposium on Information Theory (ISIT)/,
+Los Angeles, CA, USA, 
+Jun 21-26, 2020.
+[ ieeexplore].
+[papers/2020/isit.pdf paper].
+[slides/2020/isit.pdf slides].
+[https://confcats-event-sessions.s3.amazonaws.com/isit20/videos/1633.mp4 video].
+
+- A.~Krishnan~K.S., 
+[https://chandramani.dese.iisc.ac.in C.~Singh], 
+[https://sites.google.com/site/sivatheja/ S.~T.~Maguluri], and 
+P.~Parag. 
+Optimal pricing in finite server systems. 
+/International Symposium on Modeling and Optimization in Mobile, Ad Hoc and Wireless Networks (WiOpt)/,
+Volos, Greece, 
+Jun 15-19, 2020. 
+[ ieeexplore].
+[papers/2020/wiopt.pdf paper].
+[slides/2020/wiopt.pdf slides].
+[videos/2020/wiopt.mp4 video].
+
+- S.~K.~Hanna, 
+R.~Bitar, 
+P.~Parag, 
+V.~Dasari, 
+and [http://eceweb1.rutgers.edu/~csi/ S.~E.~Rouayheb]. 
+Adaptive distributed stochastic gradient descent for minimizing delay in the presence of stragglers.
+/International Conference on Acoustics, Speech, and Signal Processing (ICASSP)/,
+Barcelona, Spain, 
+May 04-08, 2020.
+[ ieexplore].
+[papers/2020/icassp.pdf paper].
+[slides/2020/icassp.pdf poster].
+[https://2020.ieeeicassp-virtual.org/presentation/poster/adaptive-distributed-stochastic-gradient-descent-minimizing-delay-presence video].
+
+- A.~Badita, 
+P.~Parag, 
+and [https://web.ics.purdue.edu/~vaneet/ V.~Aggarwal].
+Sequential addition of coded tasks for straggler mitigation.
+/IEEE International Conference on Computer Communications (INFOCOM)/, 
+Beijing, China, 
+Apr 27-30, 2020.
+[ ieeexplore]. 
+[papers/2020/infocom.pdf paper]. 
+[slides/2020/infocom.pdf slides].
+[videos/2020/infocom.mp4 video].
+
+- P.~Sharma,
+D.~Awasare, 
+B.~Jaiswal,
+S.~Mohan,
+N.~Abhinaya,
+I.~S.~Darwhekar, 
+S.V.R.~Anand,
+[http://www.cense.iisc.ac.in/bharadwaj-amrutur B.~Amrutur],
+[https://ece.iisc.ac.in/~aditya A.~Gopalan], 
+P.~Parag, and 
+[https://ece.iisc.ac.in/~htyagi H.~Tyagi].
+On the latency in vehicular control using video streaming over Wi-Fi.
+/National Conference on Communications (NCC)/,
+IIT Kharagpur, India, 
+Feb 21-23, 2020.
+[ ieeexplore]. 
+[papers/2020/ncc.pdf paper]. 
+[slides/2020/ncc.pdf slides].
+
+
+- S.~Acharya, 
+[http://www.cense.iisc.ac.in/bharadwaj-amrutur B.~Amrutur],
+[http://cds.iisc.ac.in/faculty/simmhan/ Y.~Simmhan],
+[https://ece.iisc.ac.in/~aditya A.~Gopalan], 
+P.~Parag, and 
+[https://ece.iisc.ac.in/~htyagi H.~Tyagi].
+CORNET: A co-simulation middleware for robot networks. 
+/International Conference on Communication Systems & Networks (COMSNETS)/, Bangalore, India, 
+Jan 07-11, 2020.
+[ ieeexplore]. 
+[papers/2020/comsnets.pdf paper]. 
+[slides/2020/comsnets.pdf slides].
+
+[./pubs.html All publications]
