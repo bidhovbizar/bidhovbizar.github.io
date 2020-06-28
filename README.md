@@ -23,5 +23,5 @@ OR
 2. cp index.jemdoc, changWeb.sh, jemdoc.css, jemdoc.py, MENU, mysite.conf from parimalparag.github.io and copy to bidhovbizar.github.io 
 3. chmod +x changeWeb.sh 
 4. chmod +x jemdoc.py
-4. ./changeWeb.sh //This will only work for python 2.7
-5. scp index.html username@ececloud.iisc.ac.in:~/web/
+5. ./changeWeb.sh //This will only work for python 2.7
+6. scp index.html username@ececloud.iisc.ac.in:~/web/
