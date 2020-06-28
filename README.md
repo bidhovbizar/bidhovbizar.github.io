@@ -1,5 +1,5 @@
 # bidhovbizar.github.io
-webpage creation
+Webpage creation
 
 First Step
 1. Connect to IISc VPN. 
