@@ -1,0 +1,910 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% Simple LaTeX CV Template %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NOTE: If you find that it says                                     %%
+%%                                                                    %%
+%%                           1 of ??                                  %%
+%%                                                                    %%
+%% at the bottom of your first page, this means that the AUX file     %%
+%% was not available when you ran LaTeX on this source. Simply RERUN  %%
+%% LaTeX to get the ``??'' replaced with the number of the last page  %%
+%% of the document. The AUX file will be generated on the first run   %%
+%% of LaTeX and used on the second run to fill in all of the          %%
+%% references.                                                        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Don't like 10pt? Try 11pt or 12pt
+\documentclass[11pt]{article}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+
+% This is a helpful package that puts math inside length specifications
+\usepackage{%
+	calc,%
+	%enumitem,%
+	hyperref%
+}
+
+% Layout: Puts the section titles on left side of page
+\reversemarginpar
+
+%
+%         PAPER SIZE, PAGE NUMBER, AND DOCUMENT LAYOUT NOTES:
+%
+% The next \usepackage line changes the layout for CV style section
+% headings as marginal notes. It also sets up the paper size as either
+% letter or A4. By default, letter was used. If A4 paper is desired,
+% comment out the letterpaper lines and uncomment the a4paper lines.
+%
+% As you can see, the margin widths and section title widths can be
+% easily adjusted.
+%
+% ALSO: Notice that the includefoot option can be commented OUT in order
+% to put the PAGE NUMBER *IN* the bottom margin. This will make the
+% effective text area larger.
+%
+% IF YOU WISH TO REMOVE THE ``of LASTPAGE'' next to each page number,
+% see the note about the +LP and -LP lines below. Comment out the +LP
+% and uncomment the -LP.
+%
+% IF YOU WISH TO REMOVE PAGE NUMBERS, be sure that the includefoot line
+% is uncommented and ALSO uncomment the \pagestyle{empty} a few lines
+% below.
+%
+
+%% Use these lines for letter-sized paper
+%\usepackage[paper=letterpaper,
+            %%includefoot, % Uncomment to put page number above margin
+            %marginparwidth=1.2in,     % Length of section titles
+            %marginparsep=.05in,       % Space between titles and text
+            %margin=1in,               % 1 inch margins
+            %includemp]{geometry}
+
+%% Use these lines for A4-sized paper
+\usepackage[paper=a4paper,
+            includefoot, % Uncomment to put page number above margin
+            marginparwidth=30.5mm,    % Length of section titles
+            marginparsep=1.5mm,       % Space between titles and text
+            margin=25mm,              % 25mm margins
+            includemp]{geometry}
+
+%% More layout: Get rid of indenting throughout entire document
+\setlength{\parindent}{0in}
+
+%% This gives us fun enumeration environments. compactenum will be nice.
+\usepackage{paralist}
+
+%% Reference the last page in the page number
+%
+% NOTE: comment the +LP line and uncomment the -LP line to have page
+%       numbers without the ``of ##'' last page reference)
+%
+% NOTE: uncomment the \pagestyle{empty} line to get rid of all page
+%       numbers (make sure includefoot is commented out above)
+%
+\usepackage{fancyhdr,lastpage}
+
+\pagestyle{fancy}
+\pagestyle{empty}      % Uncomment this to get rid of page numbers
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfootoffset{\marginparsep+\marginparwidth}
+\newlength{\footpageshift}
+\setlength{\footpageshift}
+          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
+\lfoot{\hspace{\footpageshift}%
+       \parbox{4in}{\, \hfill %
+                    \arabic{page} of \protect\pageref*{LastPage} % +LP
+%                    \arabic{page}                               % -LP
+                    \hfill \,}}
+
+% Finally, give us PDF bookmarks
+\usepackage{color,hyperref}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The title (name) with a horizontal rule under it
+%
+% Usage: \makeheading{name}
+%
+% Place at top of document. It should be the first thing.
+\newcommand{\makeheading}[1]%
+        {\hspace*{-\marginparsep minus \marginparwidth}%
+         \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+                {\large \bfseries #1}\\[-0.15\baselineskip]%
+                 \rule{\columnwidth}{1pt}%
+         \end{minipage}}
+
+% The section headings
+%
+% Usage: \section{section name}
+%
+% Follow this section IMMEDIATELY with the first line of the section
+% text. Do not put whitespace in between. That is, do this:
+%
+%       \section{My Information}
+%       Here is my information.
+%
+% and NOT this:
+%
+%       \section{My Information}
+%
+%       Here is my information.
+%
+% Otherwise the top of the section header will not line up with the top
+% of the section. Of course, using a single comment character (%) on
+% empty lines allows for the function of the first example with the
+% readability of the second example.
+\renewcommand{\section}[2]%
+        {\pagebreak[2]\vspace{1.3\baselineskip}%
+         \phantomsection\addcontentsline{toc}{section}{#1}%
+         \hspace{0in}%
+         \marginpar{
+         \raggedright \scshape #1}#2}
+
+% An itemize-style list with lots of space between items
+\newenvironment{outerlist}[1][\enskip\textbullet]%
+        {\begin{enumerate}[#1]}{\end{enumerate}%
+         \vspace{-.6\baselineskip}}
+
+% An environment IDENTICAL to outerlist that has better pre-list spacing
+% when used as the first thing in a \section
+\newenvironment{lonelist}[1][\enskip\textbullet]%
+        {\vspace{-\baselineskip}\begin{list}{#1}{%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{list}\vspace{-.6\baselineskip}}
+
+% An itemize-style list with little space between items
+\newenvironment{innerlist}[1][\enskip\textbullet]%
+        {\begin{compactenum}[#1]}{\end{compactenum}}
+
+% To add some paragraph space between lines.
+% This also tells LaTeX to preferably break a page on one of these gaps
+% if there is a needed pagebreak nearby.
+\newcommand{\blankline}{\quad\pagebreak[2]}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\makeheading{\huge \textsc{Bidhov Bizar}}
+
+\section{Contact Information}
+%
+% NOTE: Mind where the & separators and \\ breaks are in the following
+%       table.
+%
+% ALSO: \rcollength is the width of the right column of the table
+%       (adjust it to your liking; default is 1.85in).
+%
+\newlength{\rcollength}\setlength{\rcollength}{2.5in}%
+%
+\begin{tabular}[t]{@{}p{\textwidth-\rcollength}p{\rcollength}}
+
+  %EECS Department\\
+\textbf{Indian Institute of Science}       & +91 8848-679-599 \\
+ECE main building, Room 2.16   &                    bidhovbizar@iisc.ac.in   \\
+Bangalore, KA 560012, India          & \href{https://ece.iisc.ac.in/~bidhovbizar/}{https://ece.iisc.ac.in/$\sim$bidhovbizar/}\\
+ %USA    & \textit{Webpage:} http://ece.tamu.edu/{\footnotesize$\sim$}salim\\
+\end{tabular}
+
+
+
+%\section{Current  Position}
+%\textbf{University of California, Berkeley}
+%\begin{outerlist}
+%\item[] \textit{Postdoctoral Scholar}%
+%        \hfill  September 2009 - Present\\
+%        Supervisor: Prof. Kannan Ramchandran     
+%         \begin{innerlist}
+%         
+%           \item[$\diamond$] Fundamental limits and codes  for data reliability and security    in  distributed  storage systems
+%\item[$\diamond$] Algorithms and codes for a  distributed cache-based Video-on-Demand (VoD)  system that is being built at Berkeley
+%% \item[$\diamond$]Researching fundamental limits on data reliability and security    in  distributed  storage systems
+%%\item[$\diamond$] Developing efficient algorithms and coding schemes achieving these fundamental bounds
+%%\item[$\diamond$]Studying reliable  and secure  data  storage in distributed cloud systems
+%%\item[$\diamond$] Research on distributed systems for data storage, energy efficient wireless communications
+%%\item [$\diamond$] Supervisor: Prof. Kannan Ramchandran
+%\end{innerlist}
+%
+%%\item[-] \textit{Grader}%
+% %       \hfill \textbf{Fall 2004}
+%%\begin{innerlist}
+%%\item[$\diamond$]Graded homework papers for the \textit{Information Theory} class
+%% \end{innerlist}
+%\end{outerlist}
+%
+
+
+\section{Research Interests}
+ Distributed Systems and Networks, Network Telemetry  and Analysis, Data Science
+
+\section{Professional Experience}
+\textbf{Internship:} 
+\hfill May,21-July,21
+
+Data Center Intern
+CISCO, Bengaluru
+
+\blankline
+
+\textbf{Technical Lead:}
+\hfill Aug,15-April,16
+
+Tropical Institute of Ecological Science\\
+Worked on product design.
+
+\blankline
+
+\textbf{Internship:} 
+\hfill May,15\\
+Robosapiens Technologies Pvt. Ltd \\
+Detailed study and analysis of ATMEGA328,ATMEGA168\\
+\blankline 
+
+\section{Computer Proficiency}
+\begin{tabular}{l l}
+\textbf{Programming Languages:} & Java, Python, C, C++\\
+\textbf{Programming Frameworks:} & Embedded C, AVR, Ryu, Pox \\
+\textbf{Tools \& Technologies:} & Kafka, NS3, Dockers, WireShark, Mininet, TRex\\
+\textbf{Operating System:} & {\sc Linux}, Windows, CentOS\\
+\textbf{Software:} & {\LaTeX}\\
+\textbf{Scripting:} & {\sc Matlab}, Bash\\
+\textbf{Databases:} & MySQL\\
+\textbf{Web Technologies:} & HTML
+\end{tabular}
+
+\section{Honors \& Awards}
+\vspace{-.6cm}
+\begin{outerlist}
+%\item[$\diamond$] Early career research award, Science and engineering research board (SERB), 2017.
+%\item[$\diamond$] Outstanding poster award, student symposium, Los Alamos National Laboratory, 2007.
+%\item[$\diamond$] Graduate fellowship, Texas A\&M University, 2004.
+%\item[$\diamond$] Silver medal, Electrical Engineering department, IIT Madras, 2003. 
+\item All India rank 1276 in ECE stream in GATE, 2018.
+\item Project shortlisted for AIYEHUM,IEEE R10.[2016]
+\item Shortlisted for Mathematics camp For INMO (2011,2012)
+\item $99^{th}$ rank in {Junior Mathematics Olympiad}, 2010.
+%\item[$\diamond$] {Indian National Talent Search scholarship}, 1996. 
+\end{outerlist}
+%\section{Languages}  English, Arabic, French\\
+
+\section{Education}
+%
+%\begin{outerlist}
+%\item[]
+%\textbf{Ph.D., Texas A\&M University, College Station} %
+%\hfill 07/2004-12/2011\\
+%Department of Electrical and Computer Engineering 
+%        \begin{innerlist}
+%        \item[$\diamond$] Dissertation: \emph{``Delay-sensitive communications: code-Rates, strategies, and distributed control''}
+%        \item[$\diamond$] Advisors:     {Jean-Fran\c{c}ois Chamberland \& Srinivas Shakkottai}
+%        \item[$\diamond$] Co-Advisor:  {Prof. Alex Sprintson}
+%        \end{innerlist}
+%\end{outerlist}\vspace{-.1cm}
+%\blankline \\
+\textbf{M.~Tech.(Research), Indian Institute of Science}% 
+\hfill 07/2018-Present\\ %\vspace{-.2cm}
+Electrical Communication Engineering, Network Lab
+        \begin{innerlist}
+        %\item[$\diamond$] Dissertation: \emph{``Subcarrier allocation for multi-user OFDMA systems''}
+        \item[$\diamond$] Advisor:     {\href{https://ece.iisc.ac.in/~parimal/}{Parimal Parag}}
+        %\item[$\diamond$] Co-Advisor:  {Prof. Alex Sprintson}
+        \end{innerlist}
+%\href{https://ece.iisc.ac.in/~bidhovbizar/}{https://ece.iisc.ac.in/$\sim$bidhovbizar/}
+\blankline \\
+\textbf{B.~Tech., Rajiv Gandhi I.T., Kottayam}%
+	\hfill 07/2012-07/2016\\ %\vspace{-.2cm}
+Electrical Engineering\\
+Class Rank : 7/72
+
+\blankline \\
+\textbf{Higher Secondary School, Kendriya Vidyalaya, KGQ}%
+	\hfill 06/2010-07/2012\\ %\vspace{-.2cm}
+Science Stream \\
+Percentage : 94
+
+\blankline \\
+\textbf{High School,Kendriya Vidayalaya, KGQ}%
+	\hfill 06/2004-07/2010\\
+Percentage : 92\\
+
+% \vspace{-.4cm} \textbf{Texas Telecommunication Engineering Consortium  Graduate Fellowship}
+%\begin{innerlist}
+%%\item[$\diamond$] Research assistanship, 2005-present
+%\item[$\diamond$] Texas A\&M University, 2004
+%\end{innerlist}
+%
+%\blankline
+
+\section{Relevant Courses}
+\textbf{Electrical Engineering}: 
+ Digital Communications, Communication and Sensor Networks, Real Time System, Image Processing.\\
+\textbf{Mathematics}: 
+Probability, Convex Optimization, Queuing Thoery.\\
+\textbf{Data Science}: 
+ Machine Learning, Practical Data Science, Pattern Recognition and Neural Network\\
+
+
+\section{Academic Experience}
+\textbf{Research Assistant, CUSAT}%
+        \hfill  06/2015\\
+Department of Physics\\
+
+%\textbf{Summer Intern, Los Alamos National Lab}%
+%\hfill  05/2007 - 08/2007\\
+%Computer, Computational and Statistical Sciences\\
+
+%\textbf{Assistant Professor, Indian Institute of Science}%
+%        \hfill  12/2014 - present\\
+%Department of Electrical Communication Engineering\\
+%
+%\textbf{Visiting Student Researcher, Stanford University}%
+%\hfill  09/2010 - 12/2010\\
+%Management Science \& Engineering\\
+%
+%\textbf{Summer Intern, Los Alamos National Lab}%
+%\hfill  05/2007 - 08/2007\\
+%Computer, Computational and Statistical Sciences\\
+%
+%
+%\textbf{Research Assistant, Texas A\&M University}%
+%\hfill 01/2005-07/2011\\
+%Department of Electrical and Computer Engineering
+
+
+%\section{Industrial Experience}
+%\textbf{Senior Systems Engineer, ASSIA Inc.}%
+%\hfill 09/2011-11/2014\\
+%Expresse Research and Development\\
+%Conducted research on anomaly detection in broadband networks
+
+\section{Projects Experience}
+\vspace{-.6cm}
+\begin{outerlist}
+%\item[$\diamond$] Design and implementation of Intelligent Heterogeneous Traffic Analyser (TEQUIP), 2016.
+%\item[$\diamond$] Automated Bio Gas plant for research in bacteria (TIES),2016.
+%\item[$\diamond$] Development of E-Braille Reader (AIYEHUM,IEEE), 2015. 
+
+\item {\bf Networking:} 
+
+Constructed network using {\bf Mininet} with multiple {\bf TRex Traffic Generator} at hosts establishing {\bf TCP} communication and obtaining telemetry.\\
+Constructed {\bf \href{https://github.com/bidhovbizar/DCN-Simulation/tree/master/PythonCode}{Simulation Framework}} in {\bf Python} for large scale Data Center.  \\ 
+Simulated Fat-Tree topology to observe the the congestion of flow in {\bf NS3}.[2020]\\
+Emulated Fat-Tree topology in mininet to collect the telemetry data using {\bf Ryu} Controller.[2020]
+
+\item {\bf Java Development:} 
+
+Deployed {\bf Kafka} system in Network Lab and optimized it for better performance.[2019]
+
+\item {\bf Data Science:}
+
+Processed the {\bf telemetry} data by applying sketching algorithms and observe the congestion.[2020]\\
+ Studied {\bf Multi-label regression} techniques such as xgboost, random forest, Naive Bayes over {\bf sketched} data.[2019]\\
+{\bf Binary classification } and predict the trump cards for a game of cards.[2019]
+
+\item {\bf Hardware Project:}
+
+Developed {\bf Heterogenous Traffic Analyzer} to be deployed in roads to calculate traffic intensity.[Funded By TEQUIP,2016]\\
+Created {\bf Electronic Braille reader} to read from text paired with mobile via bluetooth.[Funded by AIYEHUM,IEEE,2015]\\
+Automated Bio Gas plant for research in bacteria.[Funded by TIES,2016]
+%Bio Plant Automation at TIES to find the optimal living habitat of bacteria.
+
+\item {\bf C++ with SQL:} 
+
+Created billing system for storage and book keeping purpose, where the database source was stored at MySQL database. [2012]
+
+\end{outerlist}
+
+
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+
+%\section{ Publications}
+%%
+%\textbf{Book Chapters and Theses}\vspace{2mm}
+%\begin{enumerate}
+%\item [{\bf [B1]}] P.~Parag,.
+%\newblock {\em Delay-sensitive communications: code-Rates, strategies, and distributed control.}
+%\newblock PhD thesis, Texas A\&M University, College Station, TX, USA, 
+%	July 2011. 
+%\end{enumerate}
+%%
+%
+%\textbf{Peer-Reviewed Journal Papers}\vspace{2mm}
+%
+%\blankline
+%$\quad${\it In Preparation}
+%\begin{enumerate}
+%\addtocounter{enumi}{6}
+%	
+%\item[{\bf [J12]}] S.~C.~Bobbili, P.~Parag and J.-F.~Chamberland.
+%\newblock Timely status updates over erasure channels.
+%%\newblock {\em IEEE Transactions on Information Theory}, 53(5):1767--1777, 
+%	to be submitted.
+%	
+%\item[{\bf [J11]}] V.~R.~Raja, P.~Parag, and S.~Shakkottai. 
+%\newblock  Mode-Suppression: Delay-Optimal Chunk-Sharing Algorithm for P2P Networks. 
+%%\newblock {\em IEEE Transactions on Information Theory}, 53(5):1767--1777, 
+%	%May 2007.
+%	to be submitted.
+%	
+%\item[{\bf [J10]}] P.~Mayekar, P.~Parag, and H.~Tyagi.
+%\newblock Optimal Lossless Source Codes for Timely Updates. 
+%%\newblock {\em IEEE Transactions on Information Theory}, 53(5):1767--1777, 
+%	%May 2007.
+%	to be submitted. 
+	
+ %\item S. El Rouayheb and  K. Ramchandran, ``Distributed Replication-based Simple Storage (DRESS) Codes for Cloud Systems,'' to be submitted. 
+ %\item A. Sprintson, P. Sadeghi, S. El Rouayheb and G. Booker, ``Cooperation with Side Information: the Data Exchange Problem,'' to be submitted. 
+%\end{enumerate}
+%
+%\blankline
+%$\quad${\it Submitted}
+%\begin{enumerate}
+%\addtocounter{enumi}{6}
+
+
+%\item[{\bf [J12]}] P.~Parag and J.-F.~Chamberland.
+%\newblock On timely status updates over erasure channels. 
+%submitted to \newblock {\em IEEE Transactions on Information Theory}. %, 53(5):1767--1777, 
+%	%May 2007.
+	
+%\item[{\bf [J09]}] R.~Bitar, P.~Parag, and S.~El~Rouayheb. .
+%\newblock 	Minimizing latency for secure distributed computing.  
+%submitted to \newblock {\em IEEE Transactions on Information Theory}. %, 53(5):1767--1777, 
+%	%May 2007.
+%
+%\item[{\bf [J08]}] S.~Poojary, S.~Bhambay, and P.~Parag. 
+%\newblock Real-time status updates for Markov source. 
+%submitted to \newblock {\em IEEE Transactions on Information Theory}. %, 53(5):1767--1777, 
+%	%May 2007.
+%
+%\item[{\bf [J07]}] P.~Parag and J.-F.~Chamberland.
+%\newblock Latency analysis for distributed storage systems. 
+%submitted to \newblock {\em IEEE Transactions on Information Theory}. %, 53(5):1767--1777, 
+%
+%\item[{\bf [J06]}] S.~Bhambay, S.~Poojary, and P.~Parag. 
+%\newblock Differential encoding for real-time status updates. 
+%submitted to \newblock {\em IEEE Transactions on Communications}. %, 53(5):1767--1777, 
+%	%May 2007.	
+
+	
+ %\item S. El Rouayheb and  K. Ramchandran, ``Distributed Replication-based Simple Storage (DRESS) Codes for Cloud Systems,'' to be submitted. 
+ %\item A. Sprintson, P. Sadeghi, S. El Rouayheb and G. Booker, ``Cooperation with Side Information: the Data Exchange Problem,'' to be submitted. 
+%\end{enumerate}
+%
+%\blankline
+
+%$\quad${\it Published/Accepted}
+%\begin{enumerate}
+
+%\item [{\bf [J6]}] M. M.~Amble, N.~Abedini, P.~Parag, S.~Shakkottai, and L.~Ying.
+%\newblock Content-Aware Caching and Traffic Management in Content Distribution Networks.
+%\newblock Submitted to {\em IEEE/ACM Transactions on Networking}, 
+%	April 2012. 
+
+%\item [{\bf [J5]}] P.~Parag, J.-F.~Chamberland, H. D.~Pfister, and K. R.~Narayanan.
+%\newblock Code rate, queueing behavior and the correlated erasure channel.
+%\newblock {\em IEEE Transactions on Information Theory}, 59(1):397--407, 
+%	January 2013. 
+%
+%\item [{\bf [J4]}] P.~Parag, S.~Sah, S.~Shakkottai, and J.-F.~Chamberland.
+%\newblock Value-aware resource allocation for service guarantees in networks. 
+%\newblock {\em IEEE Journal on Selected Areas in Communications}, 29(5):960--968,
+%	May 2011.
+%
+%\item [{\bf [J3]}] P.~Parag and J.-F.~Chamberland.
+%\newblock Queueing analysis of a butterfly network for comparing network coding to classical routing. 
+%\newblock {\em IEEE Transactions on Information Theory}, 56(4):1890--1908, 
+%	April 2010. 
+%	
+%\item [{\bf [J2]}] L.~Liu, P.~Parag, and J.-F.~Chamberland.
+%\newblock Quality of service analysis for user cooperation in wireless
+%  communication systems using fluid models. 
+%\newblock {\em IEEE Transactions on Information Theory}, 53(10):3833--3842, 
+%  October 2007.
+%	
+%\item[{\bf [J1]}] L.~Liu, P.~Parag, J.~Tang, W.-Y.~Chen, and J.-F.~Chamberland.
+%\newblock Resource allocation and quality of service evaluation for wireless
+%  communication systems using fluid models. 
+%\newblock {\em IEEE Transactions on Information Theory}, 53(5):1767--1777, 
+%	May 2007.  
+%
+%\end{enumerate}
+
+%\textbf{Preprints}
+%\begin{enumerate}
+%
+%\addtocounter{enumi}{6}
+%
+%\item S. El Rouayheb, Sreechakra Goparaju, Han Mao Kiah, Olgica Milenkovic M. Langberg, ``Synchronizing Edits in Distributed Storage Networks,''  submitted to the  \emph{IEEE Transactions on Networking}, \href{http://arxiv.org/abs/1409.1551}{arXiv:1409.1551}, September 2014.
+%
+%\item M. Effros, S. El Rouayheb, M. Langberg, ``An Equivalence between Network Coding and Index Coding,''  submitted to the  \emph{IEEE Transactions on Information Theory}, \href{http://arxiv.org/abs/1211.6660}{arXiv:1211.6660}, April 2012.
+%
+%
+ %\item N. Milosavljevic, S. Pawar,  S.  El Rouayheb, M. Gastpar and    K. Ramchandran, ``Optimal Deterministic Polynomial-Time Data Exchange for Omniscience,''   submitted to \textit{IEEE Journal on Selected Areas in Communications: In-Network Computations}, \href{http://arxiv.org/abs/1108.6046}{arXiv:1108.6046v1}, April 2012.
+%\end{enumerate}
+
+	
+%\blankline
+%{\it Submitted}
+%\begin{enumerate}
+%\addtocounter{enumi}{5}
+%
+% \item N. Milosavljevic, S. Pawar,  S.  El Rouayheb, M. Gastpar and    K. Ramchandran, ``Optimal Deterministic Polynomial-Time Data Exchange for Omniscience,''   \textit{IEEE Transactions on  Information Theory}, \href{http://arxiv.org/abs/1108.6046}{arXiv:1108.6046v1 [cs.IT]}.
+%
+%
+%\end{enumerate}
+
+%\blankline
+%
+% \textbf{Peer-Reviewed Conference Papers}
+% 
+% \blankline
+% 
+% $\quad${\it Submitted}
+% 
+% \begin{enumerate}
+%\addtocounter{enumi}{9}
+%	
+%\item[{\bf [C18]}] A.~Heidarzadeh, J.-F.~Chamberland,~P.~Parag, and R.~Wesel. 
+%\newblock  A Systematic Approach to Incremental Redundancy over Erasure Channels. 
+%submitted to \newblock {\em  IEEE International Symposium on Information Theory (ISIT)},
+%%\newblock {\em IEEE Transactions on Information Theory}, 53(5):1767--1777, 
+%	%May 2007.
+%	to be submitted.
+%	
+%\item[{\bf [C17]}] P.~Mayekar, P.~Parag, and H.~Tyagi.
+%\newblock Optimal Lossless Source Codes for Timely Updates. 
+%submitted to \newblock {\em  IEEE International Symposium on Information Theory (ISIT)}, % 53(5):1767--1777, 
+%	%May 2007. 
+%	
+%\end{enumerate}
+%
+%\blankline
+%
+% $\quad${\it Published/Accepted}
+%\begin{enumerate}
+%\addtocounter{enumi}{9}
+%\item [{\bf [C16]}] V.~R.~Raja, P.~Parag, and S.~Shakkottai. 
+%\newblock 	Mode-Suppression: A Simple and Provably Stable Chunk-Sharing Algorithm for P2P Networks. 
+%\newblock {\em IEEE Conference on Computer Communications (INFOCOM)}, 
+%Honolulu, HI, USA, April 15-19, 2018.
+%
+%\end{enumerate}
+%
+%
+%\blankline
+
+
+%\section{Invited Talks}
+%
+%``Real-Time Status Updates for Markov Sources,''
+%\begin{innerlist}
+%\item[] \textit{Bombay Information Theory Seminar,},  Jan  2018.
+%\item[] \textit{IIT Delhi},  Jan  2017.
+% \end{innerlist}
+% 
+%  \blankline
+%  
+%``Job completion times in coded parallel systems,''
+%\begin{innerlist}
+%\item[] \textit{Faculty colloquium at IISc Bangalore},  Jan  2018.
+%\item[] \textit{MVJ College of Engineering at Bangalore},  Aug  2017.
+%\item[] \textit{Georgia Institute of Technology at Atlanta},  May  2017.
+%\item[] \textit{Lectures in Probabilities Seminar XI at ISI Delhi},  Nov 2016.\\
+% \end{innerlist}
+%  \blankline
+%  
+%``Latency analysis for distributed storage,''
+%\begin{innerlist}
+%\item[] \textit{JTG summer school at IIT Bombay},  May  2017.
+%\item[] \textit{Texas A\&M University at College Station},  May  2017.
+%\item[] \textit{University of Illinois at Chicago},  Apr  2017.
+%\item[] \textit{University of California at Berkeley},  Mar  2017.
+%\item[] \textit{National Conference on Communication at IIT Madras},  Mar  2017.
+%\item[] \textit{IBM Research},  Feb  2017.\\
+% \end{innerlist}
+%  \blankline
+%  
+%``The Equivalence between index coding and network coding and other combinatorial problems,''
+%\begin{innerlist}
+%\item[] \textit{University of Illinois at Urbana-Champaign},  March  2014.
+%\item[] \textit{University of Illinois at Chicago},  October  2013.\\
+ %\end{innerlist}
+  %\blankline
+  %
+%``DRESS Code for the Storage Cloud,''
+%\begin{innerlist}
+%\item[] \textit{Chinese University of Hong Kong},  June  2011.
+%\item[] \textit{Princeton University},  April  2011.
+%\item[] \textit{Information Theory and Applications Workshop}, San Diego,  January  2011.\\
+ %\end{innerlist}
+  %\blankline
+  %
+%``On Secure Distributed Storage Under Repair Dynamics,''
+%\begin{innerlist}
+%\item[] \textit{Arizona State University}, Tempe, August  2010.
+%\item[] \textit{Information Theory and Applications Workshop}, San Diego,  January  2010.
+%\item[] \textit{Qualcomm, Inc.}, San Diego,  February 2010.
+ %\end{innerlist}
+ %\blankline
+ %
+%``Applications of Matroid Theory to Index and Network Coding,''
+%\begin{innerlist}
+%\item[] \textit{Ecole Polytechnique Federale de Lausanne}, Lausanne, Switzerland,  May 2009.
+%\item[] \textit{California Institute of Technology}, Pasadena,  February 2009.
+%\item[] \textit{Information Theory \& Applications Workshop}, San Diego, February  2009.
+ %\end{innerlist}
+%
+%%\blankline
+%%
+%%``Efficient and Secure Information Exchange Using Network Coding,''
+%%\begin{innerlist}
+%%\item[] \textit{INFORMS Annual Meeting}, Washington DC, October  2008.
+%% \end{innerlist}
+%
+%\blankline
+%
+%``Network Security with Network Coding,''
+%\begin{innerlist}
+%\item[] \textit{Ecole Nationale Sup\'{e}rieure des T\'{e}l\'{e}communications (ENST)}, Paris, March 2007.
+%\item[] \textit{Brooklyn Polytechnical University}, Brooklyn, August  2006.
+ %\end{innerlist}
+%
+%\blankline
+%
+%
+ %``Designing Failure-Tolerant Network Codes,''
+%\begin{innerlist}
+%\item[] \textit{35th IEEE Communication Theory Workshop}, Dorado, Puerto Rico, May 2006.
+ %\end{innerlist}
+%
+%%\blankline
+%%
+%%``Network Coding: Algorithmic Aspects and Connection to Error Correcting Codes,''
+%%\begin{innerlist}
+%%\item[] \textit{Quantum Computing Open Seminar},  College Station,  March 2006.
+%% \end{innerlist}
+%
+%%\blankline
+%%
+%%
+%%\section{Posters}
+%%``Securing Distributed Storage Systems Against Adversarial Attacks,''
+%%\begin{innerlist}
+%%\item[]  \textit{DTRA Basic Research Technical Review }, Springfield,  August  2010.
+%%\item[]  \textit{School of Information Theory}, Los Angeles,  August  2010.
+%%\end{innerlist}
+%%
+%%\blankline
+%%
+%%``A New Construction Method for Matroidal Networks,''
+%%\begin{innerlist}
+%%\item[]  \textit{Winedale Workshop on Signals and Systems}, Round Top, October 2008.
+%%\end{innerlist}
+%%
+%%\blankline
+%%
+%%``Some Results on the Index Coding Problem,''
+%%\begin{innerlist}
+%% \item[]   \textit{First Annual School of Information Theory}, State College,   June 2008.
+%%\end{innerlist}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newpage
+%\section{Teaching Experience}
+%\textbf{Indian Institute of Science}
+%\begin{outerlist}
+%\item[] \textit{Lecturer}%
+%               \begin{innerlist}
+%                 \item[$\diamond$] E2 204: Stochastic Processes and Queueing Theory \hfill { Spring 2018}
+%                 \item[$\diamond$] E2 202: Random Processes \hfill { Fall 2017}
+%                 \item[$\diamond$] E1 244: Estimation and Detection Theory \hfill { Spring 2017}
+%                 \item[$\diamond$] E2 204: Stochastic Processes and Queueing Theory \hfill { Spring 2017}
+%                 \item[$\diamond$] E1 244: Estimation and Detection Theory \hfill { Spring 2016}
+%                 \item[$\diamond$] E2 204: Stochastic Processes and Queueing Theory \hfill { Spring 2016}
+%                 \item[$\diamond$] E0 201: Proofs and Measures \hfill { Fall 2015}
+%                 \item[$\diamond$] E2 204: Stochastic Processes and Queueing Theory \hfill { Spring 2015}
+%               \end{innerlist}
+%\end{outerlist}
+%\blankline  
+
+
+%\textbf{Rutgers University}\vspace{-.2cm}
+%\begin{outerlist}
+%\item[] \textit{Lecturer}%
+               %\begin{innerlist}
+                %\item[$\diamond$] 14:332:312: Discrete Mathematics \hfill { Spring 2013}
+               %\end{innerlist}
+%\end{outerlist}
+%\blankline  
+
+%\textbf{Texas A\&M University}\vspace{-.2cm}
+%\begin{outerlist}
+%\item[] \textit{Guest Lecturer}%
+% \begin{innerlist}
+%	\item[$\diamond$] {ECEN 303} -- Random Signals and Systems \hfill { Spring 2010}
+%	\item[$\diamond$] {ECEN 601} -- Linear Network Analysis \hfill { Fall 2009}
+%	\item[$\diamond$] {ECEN 662} -- Estimation and Detection Theory \hfill { Spring 2009}
+%	\item[$\diamond$] {ECEN 683} -- Wireless Communications \hfill { Fall 2008}
+%\end{innerlist}
+%\end{outerlist}
+%\blankline  
+%   
+%   \textbf{Texas A\&M University}\vspace{-.2cm}
+%\begin{outerlist}
+%\item[] \textit{Teaching Assistant}%       
+%        \begin{innerlist}
+%\item[$\diamond$] {ECEN 214} -- Electric Circuit Theory  \hfill { Spring 2008}
+%\item[$\diamond$] {ECEN 314} -- Signals and Systems \hfill {Fall 2007}
+%\end{innerlist}
+%\end{outerlist}
+%\blankline     
+%   
+%   \textbf{Indian Institute of Technology Madras}\vspace{-.2cm}
+%\begin{outerlist}
+%\item[] \textit{Teaching Assistant}%
+%        \begin{innerlist}
+%   \item[$\diamond$] {EE 611} -- Digital Coding {\&} Modulation \hfill { Spring 2004}
+%   \item[$\diamond$] {EE 320} -- Principles of Communication \hfill { Fall 2003}
+%    \end{innerlist}
+%
+%\end{outerlist}
+%\blankline   
+%      
+   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\section{Graduate Course Work}
+%Wireless Communication, Modulation Theory,  Detection and Estimation, Information Theory, Channel Coding, Advanced Digital Signal Processing, Probability Theory and Stochastic Processes,  Queuing Theory,  Number Theory, Algebraic Geometry, Algorithmic Algebraic Geometry, Topology, Algebraic Topology, Elliptic Curves and Modular Forms, Fuzzy Logic, Sustainable Development Management.
+%
+%\section{Supervised Students}
+%\section {Research Grants}
+
+%\section {Professional Service}
+%%\vspace{-.2cm}
+%\textbf{Program Chair}
+%\begin{innerlist}
+%\item [$\diamond$] The ACM International Symposium on Mobile Ad Hoc Networking and Computing (MobiHoc) : Posters and Demonstrations 2018, Workshops 2017
+%\item [$\diamond$] International Conference on Signal Processing and Communications (SPCOM): Publications 2018, Web 2016 
+%\item[$\diamond$] International Conference on Communication Systems and Networks (COMSNETS): Intelligent Transportation Systems Workshop 2018
+%\item[$\diamond$] IEEE International Conference on Advanced Networks and Telecommunications Systems (ANTS 2016): Technical Program Committee.
+%
+%\end{innerlist}
+%\textbf{Technical Program Committee}
+%\begin{innerlist}
+%\item[$\diamond$]  Chair: ANTS 2016, 
+%\item[$\diamond$]  Member: MobiHoc (2018, 2017, 2016), NCC (2017, 2016, 2015),  COMSNETS (2017, 2016, 2015), SPCOM (2-18, 2016), COMSNETS ITS workshop 2016,  Globecomm LTE - Advanced and Beyond 4G workshop (2013, 2012).
+%\item [$\diamond$] The ACM International Symposium on Mobile Ad Hoc Networking and Computing (MobiHoc) : 2018, 2017, 2016
+%\item[$\diamond$] International Conference on Signal Processing and Communications (SPCOM): 2018, 2016
+%\item[$\diamond$] National Conference on Communication (NCC): 2017, 2016, 2015
+%\item[$\diamond$] International Conference on Communication Systems and Networks (COMSNETS): 2017, 2016, 2015
+%\item[$\diamond$] IEEE Global Communications Conference (Globecomm), LTE - Advanced and Beyond 4G workshop:  2013, 2012
+%\end{innerlist}
+%
+%\blankline
+%
+%\textbf{Organizing Committee}
+%\begin{innerlist}
+%\item[$\diamond$]  National Conference on Communication (NCC 2017, NCC 2016), International Conference on Signal Processing and Communications (SPCOM 2018, SPCOM 2016), JTG Summer School on Information Theory (JTG 2016, JTG 2015), IISc-DRDO Workshop on Mobile Ad-Hoc Networks (2015).
+% \end{innerlist}
+%
+%\blankline
+%
+%\textbf{Reviewer}
+%\begin{innerlist}
+%\item[$\diamond$] IEEE Transactions on  Information Theory, IEEE Journal On Selected Areas In Communications, IEEE Transactions on Communications, IEEE Transactions on  Wireless Communications
+%\item [$\diamond$] IEEE Conference on Computer Communications (INFOCOM), 
+%International Symposium on Information Theory (ISIT), The ACM International Symposium on Mobile Ad Hoc Networking and Computing (MobiHoc).
+% \end{innerlist}
+%
+%\blankline
+%
+%\textbf{Information Theory Student Committee Co-Chair }\hfill January 2010 - 2011
+%
+%\blankline
+
+
+%\vspace{-.2cm}\textbf{Session Chair}
+%\begin{innerlist}
+%\item[] Network Coding Workshop (2009), International Symposium on Information Theory (2010).
+% \end{innerlist}
+% 
+%\blankline
+
+\section{Memberships}IEEE, Computer Society, WIE
+\blankline
+
+
+
+%
+%
+%\section{References}\vspace{-5mm}
+%\begin{center}
+%\begin{tabular}{ll}
+%\textbf{Prof. H. Vincent Poor}  \\
+%EE Department\\
+%Princeton University \\
+%Princeton, NJ 08544 \\
+%Tel: (609) 258-1816 \\
+%Fax: (609) 258-7305 \\
+%E-mail: poor@princeton.edu\\[1cm]
+%
+%
+%
+%\textbf{Prof. Costas N. Georghiades} \\
+%ECE Department \\
+%Texas A\&M University\\
+%College Station, TX 77843\\
+%Tel: (979) 845-7408\\
+%Fax: Fax: (979) 845-6259\\
+%E-mail: georghiades@tamu.edu\\[1cm]
+%
+%\end{tabular}
+%%
+%\begin{tabular}{ll}
+%
+%\textbf{Prof. Kannan Ramchandran}  \\
+%EECS Department\\
+%University of California, Berkeley \\
+%Berkeley, CA 94720 \\
+%Tel: (510) 642-2353\\
+%Fax: (510) 642-2845 \\
+%E-mail: kannanr@eecs.berkeley.edu\\[1cm]
+%
+%
+%%\textbf{Dr. Emina Soljanin}\\
+%%Bell Labs, Alcatel-Lucent\\
+%%600 Mountain Av.\\
+%%Murray Hill, NJ 07974 \\
+%%Tel: (908)  582-7933\\
+%%Fax: (908) 582-3340\\
+%%E-mail: emina@research.bell-labs.com\\[1cm]
+%
+%%
+%\textbf{Prof. Alexander Sprintson}\\
+%ECE Department\\
+%Texas A\&M University\\
+%College Station, TX 77843\\
+%Tel: (979) 458-0092\\
+%Fax: (979) 845-2632\\
+%E-mail: spalex@tamu.edu\\[1cm]
+%%
+%%%\textbf{Prof. Alexandros G. Dimakis}\\
+%%%EE Department\\
+%%%University of Southern California\\
+%%%532 EEB, 3740 McClintock Ave., (MC 2560) \\
+%%%Tel: (213) 740-9264\\
+%%%E-mail: dimakis@usc.edu\\
+%%%
+%%
+%%
+%%%\textbf{Prof. Yeung Wai-Ho, Raymond } \\
+%%%Dept. of Information Engineering \\
+%%%The Chinese University of Hong Kong\\
+%%%Shatin, N T, Hong Kong  \\
+%%%Tel: (852) 2609-8375 \\
+%%%Fax: (852) 2603-5032 \\
+%%%E-mail: whyeung@ie.cuhk.edu.hk
+%
+%\end{tabular}
+%\end{center}
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% End CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
