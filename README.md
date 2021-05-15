@@ -29,7 +29,7 @@ OR
 5. ./changeWeb.sh -------------> //This will only work for python 2.7
 6. scp index.html username@ececloud.iisc.ac.in:~/web/
 
-# Folder Description
+# Folder Description  
    -> images
    	For storing Images like Passport Size photo for my website
    -> resume
