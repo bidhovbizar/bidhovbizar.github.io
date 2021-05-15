@@ -2,7 +2,7 @@
 * [Webpage Creation Help](#webpage-creation)
 * [Folder Descption](#folder-description)
 
-## Webpage Creation Help
+# Webpage Creation Help
 
 First Step
 1. Connect to IISc VPN. 
@@ -29,11 +29,10 @@ OR
 5. ./changeWeb.sh -------------> //This will only work for python 2.7
 6. scp index.html username@ececloud.iisc.ac.in:~/web/
 
-## Folder Description  
-
-   -> images
-   	For storing Images like Passport Size photo for my website
-   -> resume
+# Folder Description  
+	-> images
+		For storing Images like Passport Size photo for my website
+	-> resume
         To store Curriculum Vitae to be made available in my website
-   -> resumeWorkspace
-   	Contains the active workspace for my CV Development
+	-> resumeWorkspace
+		Contains the active workspace for my CV Development
