@@ -30,6 +30,7 @@ OR
 6. scp index.html username@ececloud.iisc.ac.in:~/web/
 
 # Folder Description  
+
    -> images
    	For storing Images like Passport Size photo for my website
    -> resume
