@@ -30,6 +30,7 @@
 	%enumitem,%
 	hyperref%
 }
+\usepackage{paralist}
 
 % Layout: Puts the section titles on left side of page
 \reversemarginpar
@@ -157,7 +158,7 @@
 % An itemize-style list with lots of space between items
 \newenvironment{outerlist}[1][\enskip\textbullet]%
         {\begin{enumerate}[#1]}{\end{enumerate}%
-         \vspace{-.6\baselineskip}}
+         \vspace{-1\baselineskip}}
 
 % An environment IDENTICAL to outerlist that has better pre-list spacing
 % when used as the first thing in a \section
@@ -229,79 +230,52 @@ Bangalore, KA 560037, India          & \href{https://ece.iisc.ac.in/~bidhovbizar
 
 
 \section{Professional Interests}
- Distributed Systems and Networking, L2/L3 Network Protocols, Network Telemetry, Switching Technologies, Network Issue Debugging and Troubleshooting, Software-Defined Networking, Network Performance Optimization, Machine Learning
+ Distributed Systems and Networking, L2/L3 Network Protocols, Network Telemetry, Switching Technologies, Software-Defined Networking, Network Performance Optimization, Machine Learning
 
 \section{Industrial Experience}
 \textbf{Software Engineer:}
-\hfill Jan,2022-
-
+\hfill Jan,2022-\\
 Data Center BU, \\
-Cisco Systems India Pvt Ltd, Bengaluru
-
-\blankline 
-
-\textbf{Internship:} 
-\hfill May,2021-July,2021
-
+Cisco Systems India Pvt Ltd, Bengaluru\\ 
+\textbf{Intern:} 
+\hfill May,2021-July,2021\\
 Data Center Intern
-CISCO, Bengaluru
-
-\blankline
-
-\textbf{Technical Lead:}
+CISCO, Bengaluru\\
+\textbf{ Hardware Engineer at TIES:}
 \hfill Aug,2015-April,2016
-
-Tropical Institute of Ecological Science\\
-Worked on product design.
-
-\blankline
-
-\textbf{Internship:} 
-\hfill May,2015\\
-Robosapiens Technologies Pvt. Ltd \\
-Detailed study and analysis of ATMEGA328,ATMEGA168. Constructed multiple mini tools\\
-\blankline 
-
-%\textbf{Senior Systems Engineer, ASSIA Inc.}%
-%\hfill 09/2011-11/2014\\
-%Expresse Research and Development\\
-%Conducted research on anomaly detection in broadband networks
+\begin{compactitem}
+\item Collaborated with a cross-functional team to develop an automated Bio Gas plant for research in bacteria at Tropical Institute of Ecological Science.
+\end{compactitem}
+\textbf{Intern at Robosapiens Technologies Pvt. Ltd:} 
+\hfill May,2015
+\begin{compactitem}
+\item Detailed study and analysis of ATMEGA328,ATMEGA168. 
+\item Developed a robotic arm control system using ATMEGA328, enabling movement in two axes.  
+\end{compactitem}
 
 \section{Projects Experience}
 \vspace{-.6cm}
 \begin{outerlist}
-%\item[$\diamond$] Design and implementation of Intelligent Heterogeneous Traffic Analyser (TEQUIP), 2016.
-%\item[$\diamond$] Automated Bio Gas plant for research in bacteria (TIES),2016.
-%\item[$\diamond$] Development of E-Braille Reader (AIYEHUM,IEEE), 2015. 
-
-\item {\bf Networking:}
-
+\item {\bf Networking:}\\
 Constructed network using {\bf Mininet} with multiple {\bf TRex Traffic Generator} at hosts running stateless, stateful and Client Server L7 traffic and obtained telemetry.[2021]\\
 Constructed {\bf \href{https://github.com/bidhovbizar/DCN-Simulation/tree/master/PythonCode}{Simulation Framework}} in {\bf Python} for large scale Data Center in Fat-Tree Topology. [2020]  \\ 
 Simulated Fat-Tree topology to observe the the congestion of flow in {\bf NS3}.[2020]\\
 Emulated Fat-Tree topology in Mininet to collect the telemetry data using {\bf Ryu} Controller and {\bf OpenVSwitches}.[2020]
-
-\item {\bf Java Development:} 
-
+\vspace{-6pt}
+\item {\bf Java Development:} \\
 Deployed {\bf Kafka} system in Network Lab, used Confluent Message Generator to run experiments and optimized it for better performance than off the shelf.[2019]
-
-\item {\bf Machine Learning:}
-
+\vspace{-6pt}
+\item {\bf Machine Learning:}\\
 Processed the {\bf telemetry} data by applying sketching algorithms and observe the congestion.[2020]\\
  Studied {\bf Multi-label regression} techniques such as xgboost, random forest, Naive Bayes over {\bf sketched} data.[2019]\\
 {\bf Binary classification } and predict the trump cards for a game of cards.[2019]
-
-\item {\bf Hardware Project:}
-
+\vspace{-6pt}
+\item {\bf Hardware Project:}\\
 Developed {\bf Heterogenous Traffic Analyzer} to be deployed in roads to calculate traffic intensity.[Funded By TEQUIP,2016]\\
-Created {\bf Electronic Braille reader} to read from text paired with mobile via bluetooth.[Funded by AIYEHUM,IEEE,2015]\\
-Automated Bio Gas plant for research in bacteria.[Funded by TIES,2016]
-%Bio Plant Automation at TIES to find the optimal living habitat of bacteria.
-
-\item {\bf C++ with SQL:} 
-
+Created {\bf Electronic Braille reader} to read from text paired with mobile via bluetooth.[Funded by AIYEHUM,IEEE,2015]
+\vspace{-6pt}
+\item {\bf C++ with SQL:} \\
 Created billing system for storage and book keeping purpose, where the database source was stored at MySQL database. [2012]
-
 \end{outerlist}
 
 \section{Computer Proficiency}
@@ -333,27 +307,27 @@ Created billing system for storage and book keeping purpose, where the database 
 \hfill 07/2018-Present\\ %\vspace{-.2cm}
 Electrical Communication Engineering, Network Lab
         \begin{innerlist}
-        %\item[$\diamond$] Dissertation: \emph{``Subcarrier allocation for multi-user OFDMA systems''}
+        \item[$\diamond$] Dissertation: \emph{``Empirical study of load generation for Data Center Network''}
         \item[$\diamond$] Advisor:     {\href{https://ece.iisc.ac.in/~parimal/}{Parimal Parag}}
-        %\item[$\diamond$] Co-Advisor:  {Prof. Alex Sprintson}
+        
         \end{innerlist}
-%\href{https://ece.iisc.ac.in/~bidhovbizar/}{https://ece.iisc.ac.in/$\sim$bidhovbizar/}
-\blankline \\
+\vspace{2pt}
+
 \textbf{B.~Tech., Rajiv Gandhi I.T., Kottayam}%
 	\hfill 07/2012-07/2016\\ %\vspace{-.2cm}
 Electrical Engineering\\
 Class Rank : 7/72
+\vspace{2pt}
 
-\blankline \\
 \textbf{Higher Secondary School, Kendriya Vidyalaya, KGQ}%
 	\hfill 06/2010-07/2012\\ %\vspace{-.2cm}
 Science Stream \\
 Percentage : 94
+\vspace{2pt}
 
-\blankline \\
 \textbf{High School,Kendriya Vidayalaya, KGQ}%
 	\hfill 06/2004-07/2010\\
-Percentage : 92\\
+Percentage : 92
 
 \section{Relevant Courses}
 \textbf{Electrical Engineering}: 
@@ -361,35 +335,25 @@ Percentage : 92\\
 \textbf{Mathematics}: 
 Probability, Convex Optimization, Queuing Thoery.\\
 \textbf{Data Science}: 
- Machine Learning, Practical Data Science, Pattern Recognition and Neural Network\\
-
+ Machine Learning, Practical Data Science, Pattern Recognition and Neural Network
 
 \section{Academic Experience}
 \textbf{Research Assistant, CUSAT}%
         \hfill  06/2015\\
-Department of Physics\\
+Department of Physics
 
 %\textbf{Summer Intern, Los Alamos National Lab}%
 %\hfill  05/2007 - 08/2007\\
 %Computer, Computational and Statistical Sciences\\
 
-
-
 \section{Honors \& Awards}
 \vspace{-.6cm}
-\begin{outerlist}
-%\item[$\diamond$] Early career research award, Science and engineering research board (SERB), 2017.
-%\item[$\diamond$] Outstanding poster award, student symposium, Los Alamos National Laboratory, 2007.
-%\item[$\diamond$] Graduate fellowship, Texas A\&M University, 2004.
-%\item[$\diamond$] Silver medal, Electrical Engineering department, IIT Madras, 2003. 
+\begin{compactitem}
 \item All India rank 1276 in ECE stream in GATE, 2018.
 \item Project shortlisted for AIYEHUM,IEEE R10.[2016]
 \item Shortlisted for Mathematics camp For INMO (2011,2012)
 \item $99^{th}$ rank in {Junior Mathematics Olympiad}, 2010.
-%\item[$\diamond$] {Indian National Talent Search scholarship}, 1996. 
-\end{outerlist}
-
-
+\end{compactitem}
 \renewcommand{\labelenumi}{\arabic{enumi}.}
 
 %\section{ Publications}
