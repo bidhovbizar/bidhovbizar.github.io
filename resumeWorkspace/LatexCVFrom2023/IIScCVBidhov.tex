@@ -185,31 +185,34 @@
 % if there is a needed pagebreak nearby.
 \newcommand{\blankline}{\quad\pagebreak[2]}
 
+\usepackage{fontawesome}
+
 %%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
+
 \makeheading{\huge \textsc{Bidhov Bizar} \\
 \rule{\textwidth}{1pt}
 \large Software Engineer | Cisco | IISc | RIT}
 
-\section{Contact Information}
-% NOTE: Mind where the & separators and \\ breaks are in the following
-%       table.
+%\section{Contact Information}
+%% NOTE: Mind where the & separators and \\ breaks are in the following
+%%       table.
+%%
+%% ALSO: \rcollength is the width of the right column of the table
+%%       (adjust it to your liking; default is 1.85in).
+%\newlength{\rcollength}\setlength{\rcollength}{2.5in}%
+%%
+%\begin{tabular}[t]{@{}p{\textwidth-\rcollength}p{\rcollength}}
 %
-% ALSO: \rcollength is the width of the right column of the table
-%       (adjust it to your liking; default is 1.85in).
-\newlength{\rcollength}\setlength{\rcollength}{2.5in}%
+%  %EECS Department\\
+%Raycon Lotus Apartment       & +91 7012-556-335 \\
+%AECS Layout, Kundalahalli   &                    bidhovbizar.office@gmail.com   \\
+%Bangalore, KA 560037, India          & \href{https://ece.iisc.ac.in/~bidhovbizar/}{https://ece.iisc.ac.in/$\sim$bidhovbizar/}\\
 %
-\begin{tabular}[t]{@{}p{\textwidth-\rcollength}p{\rcollength}}
-
-  %EECS Department\\
-Raycon Lotus Apartment       & +91 7012-556-335 \\
-AECS Layout, Kundalahalli   &                    bidhovbizar.office@gmail.com   \\
-Bangalore, KA 560037, India          & \href{https://ece.iisc.ac.in/~bidhovbizar/}{https://ece.iisc.ac.in/$\sim$bidhovbizar/}\\
-
-\end{tabular}
+%\end{tabular}
 
 %\section{Current  Position}
 %\textbf{University of California, Berkeley}
@@ -241,17 +244,42 @@ Bangalore, KA 560037, India          & \href{https://ece.iisc.ac.in/~bidhovbizar
  Distributed Systems and Networking, L2/L3 Network Protocols, Network Telemetry, Switching Technologies, Software-Defined Networking, Network Performance Optimization, Machine Learning
 
 \section{Industrial Experience}
-\textbf{Software Engineer:}
-\hfill Jan,2022-
+\textbf{Software Engineer at  Data Center BU, Cisco:}
+\hfill July,2022-July,2023
+
+\textbf{L3 Team}
 \begin{compactitem}
-\item Data Center BU, 
-\item Cisco Systems India Pvt Ltd, Bengaluru
+\item Completed CCNA training and scored 29/30.
+\item Worked on 2 features requiring the creation of new CLI commands based on customer requirements.
+\item Worked through 3 release cycles, including responsibilities in SPAN and L3.
+\item Configured and debugged ISIS, BFD, VRF, ARP and other L2/L3 network issues.
+\item Gained expertise in inter-process communication(IPC) between network components especially between supervisor and line cards.
+\item Represented the L3 team for 2 customer bug and led successful debugging sessions.
+\item Collaborated with other component teams to resolve 8 test stopper bugs.
+\item Actively contributed to documentation, locally and on the company's wiki.
+\item Conducted webinars on 'Classification of L3 commands' and 'How to construct a new command and DMEize' for internal knowledge sharing.
+\item Played a key role in resolving 6 L3 consistency checker bugs.
+\item Led the resolution of 28 bugs in total, including root cause analysis.
+\item Assisted in setting up Nexus Switches in a fat-tree topology and configuring them for testing purposes.
 \end{compactitem}
-\textbf{Intern:} 
+
+\textbf{L2 Team}
+\hfill Jan,2022-July2022
+\begin{compactitem}
+
+\item    Wrote L2 SPAN sanity testsuite for the upcoming Cisco ASIC in a virtual platform.
+\item    Utilized Nexus test automation docker to test and solve testsuite issues.
+\item    Successfully closed bugs related to SPAN and L2 forwarding.
+\item    Gained in-depth knowledge of packet walk in N7k and N9k switch.
+\item    Proficiently worked with SPAN and ERSPAN for traffic monitoring.
+\end{compactitem}
+
+\textbf{Intern at Cisco:} 
 \hfill May,2021-July,2021
 \begin{compactitem}
-\item Data Center Intern
-\item CISCO, Bengaluru.
+\item Assisted L2 and L3 teams of Data Center BU in diagnosing and resolving component time convergence issues.
+\item Aided in identifying the root causes behind the 15 to 30 seconds increase in delays during the switch's transition from standby to active state.
+\item Developed a Python script to automate the identification of convergence issues by comparing timestamps of various components, reduceing the time for  diagnosing similar incidents and improving overall network performance.
 \end{compactitem}
 
 \textbf{ Hardware Engineer at TIES:}
@@ -510,51 +538,27 @@ Probability, Convex Optimization, Queuing Thoery.\\
 IEEE, Computer Society, WIE
 \blankline
 
-
 \section{References}\vspace{-5mm}
 \begin{center}
 \begin{tabular}{ll}
-\textbf{Prof. H. Vincent Poor}  \\
-EE Department\\
-Princeton University \\
-Princeton, NJ 08544 \\
-Tel: (609) 258-1816 \\
-Fax: (609) 258-7305 \\
-E-mail: poor@princeton.edu\\[1cm]
-
-
-
-\textbf{Prof. Costas N. Georghiades} \\
-ECE Department \\
-Texas A\&M University\\
-College Station, TX 77843\\
-Tel: (979) 845-7408\\
-Fax: Fax: (979) 845-6259\\
-E-mail: georghiades@tamu.edu\\[1cm]
-
+\textbf{Prateek Sadhukhan}  \\
+Leader, Software Engineering (Last Manager)\\
+Data Center BU\\
+Cisco Systems India Pvt Ltd, Bengaluru\\
+Tel: (+91)  98808 55911 \\
+E-mail: psadhukh@cisco.com\\[1cm]
 \end{tabular}
 \begin{tabular}{ll}
-
-\textbf{Prof. Kannan Ramchandran}  \\
-EECS Department\\
-University of California, Berkeley \\
-Berkeley, CA 94720 \\
-Tel: (510) 642-2353\\
-Fax: (510) 642-2845 \\
-E-mail: kannanr@eecs.berkeley.edu\\[1cm]
-
-\textbf{Prof. Alexander Sprintson}\\
-ECE Department\\
-Texas A\&M University\\
-College Station, TX 77843\\
-Tel: (979) 458-0092\\
-Fax: (979) 845-2632\\
-E-mail: spalex@tamu.edu\\[1cm]
-
-
+\textbf{G. Shankar Gopalkrishnan} \\
+Principal Software Engineer \\
+Data Center BU\\
+Cisco Systems India Pvt Ltd, Bengaluru\\
+Tel: (+91)  99805 41523\\
+E-mail: gshankar@cisco.com\\[1cm]
 \end{tabular}
 
 \end{center}
+
 \end{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% End CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
