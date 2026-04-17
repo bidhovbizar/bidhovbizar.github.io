@@ -233,13 +233,13 @@ Software Development and Automation, Distributed Systems and Networking, L2/L3 N
 \section{Professional Experience}
 \textbf{Automation Engineer/Systems Engineer, Intersight BU, Cisco} \hfill  Aug 2023 -- Present
 
-\quad \textbf{Automation Engineering \& Platform / Infrastructure  }
+\quad \textbf{Automation Engineering \& Platform / Infrastructure}
 \begin{compactitem}
 \item Designed and implemented 15+ \textbf{test plans} and scalable automation frameworks, including \textbf{emulator-based execution}, enabling validation across hardware and multiple cloud environments.
 \item Developed and maintained \textbf{end-to-end automation workflows} for firmware upgrades, OS validation, server policies, adapter configuration, and platform health checks, integrated with \textbf{Jenkins-based CI/CD pipelines}.
 \item Developed \textbf{test infrastructure workflows} including  testbed orchestration, and environment provisioning, improving reliability and repeatability of large-scale validation setups.
 \item Diagnosed and resolved 40+ sev2 complex \textbf{platform and system issues} spanning firmware, inventory, discovery/claim flows, alarm schemas, and deployment semantics across \textbf{ISM, IMM, FI, appliance, and cloud environments}.
-\item Enhanced script to improve\textbf{observability and debugging} by improving alarm verification, tech-support collection, and RCA tooling, significantly reducing time-to-diagnose for failures.
+\item Enhanced script to improve \textbf{observability and debugging} by improving alarm verification, tech-support collection, and RCA tooling, significantly reducing time-to-diagnose for failures.
 \end{compactitem}
 
 \quad \textbf{Systems, Backend \& Debugging}
@@ -253,7 +253,7 @@ Software Development and Automation, Distributed Systems and Networking, L2/L3 N
 \begin{compactitem}
 \item Led \textbf{CI/CD and build system improvements}, including resolving static analysis failures, upgrading \textbf{Python runtimes (3.7 $\rightarrow$ 3.12)}, fixing Docker dependencies, and stabilizing Jenkins pipelines.
 \item Identified and fixed \textbf{framework-level issues} (pylint recursion limits, schema mismatches, serialization gaps), improving robustness of large-scale automation and analysis workflows.
-\item Drove \textbf{release and patch qualification} across multiple platform variants (Compute, FI infra bundles 4.2.x to 6.0.2.x), ensuring readiness for staging and production releases.
+\item Drove \textbf{release and patch qualification} across multiple platform variants (Compute, FI infra bundles from 4.2.x to 6.0.2.x), ensuring readiness for staging and production releases.
 \item Improved execution reliability by resolving issues in \textbf{pipeline orchestration, logging, report portal integration, and execution host compatibility}.
 \end{compactitem}
 
@@ -261,26 +261,27 @@ Software Development and Automation, Distributed Systems and Networking, L2/L3 N
 \begin{compactitem}
 \item Built internal \textbf{AI-assisted tools} including a test report summarizer, daily sanity bot, and integrations with \textbf{CDets and Kibana} to accelerate failure analysis.
 \item Developed a \textbf{Jira-Webex integration tool} for automated reporting and tracking, improving visibility and reducing coordination overhead across teams.
-\item Contributed to \textbf{AI/DeepInsight initiatives} (Bugscribe, test plan generation), presenting solutions to internal teams and leadership.
+\item Contributed to \textbf{AI tools} such as (bug scribe, test plan generation, visionai), presenting solutions to internal teams and leadership.
 \item Mentored new engineers through \textbf{knowledge transfer sessions}, onboarding, and technical workshops on coding practices and tooling.
 \end{compactitem}
 
-\textbf{Software Engineer, Data Center BU, Cisco} \hfill July 2022 -- July 2023
+\textbf{Software Engineer C, Data Center BU, Cisco} \hfill July 2022 -- July 2023
 
 \quad \textbf{L3 Team}
 \begin{compactitem}
-\item Designed and implemented \textbf{CLI-based features} based on customer requirements across multiple release cycles.
-\item Debugged complex \textbf{L2/L3 networking issues} (ISIS, BFD, VRF, ARP) and forwarding behavior in large-scale deployments.
-\item Developed expertise in \textbf{control plane and inter-process communication} between supervisor and line cards.
+\item Developed and implemented \textbf{CLI-based features} based on customer requirements across multiple release cycles.
+\item Configured and debugged \textbf{L2/L3 networking issues} (ISIS, BFD, VRF, ARP) and forwarding behavior in lab deployments as part of regression runs and CFD.
+\item Developed expertise in \textbf{control plane and inter-process communication} between supervisor and line cards especially in broadcom chips.
 \item Led \textbf{root cause analysis} of customer-reported issues and collaborated cross-functionally to resolve \textbf{release-blocking defects}.
-\item Set up and validated \textbf{Nexus switch topologies (fat-tree)} for testing and debugging.
+\item Set up and validated \textbf{Nexus switch topologies (fat-tree)} for testing and debugging in vega lab.
 \item Conducted internal sessions on \textbf{CLI architecture and DME integration}, and contributed to technical documentation.
 \end{compactitem}
 
 \quad \textbf{L2 Team} \hfill Jan 2022 -- July 2022
 \begin{compactitem}
-\item Developed and automated \textbf{SPAN/ERSPAN validation frameworks} for Cisco ASICs in virtualized environments.
-\item Built and debugged \textbf{containerized (Docker) network testing workflows}.
+\item Programmed \textbf{L2 SPAN sanity testsuite} for the Cisco ASIC in a virtual platform.
+\item Utilized Nexus test automation \textbf{docker} to test and solve testsuite issues.
+\item Built and debugged \textbf{containerized (Docker) network testing workflows} for emulator runs.
 \item Investigated issues in \textbf{L2 forwarding and traffic mirroring}, and performed detailed \textbf{packet walk analysis} on N7k/N9k platforms.
 \end{compactitem}
 
@@ -292,16 +293,19 @@ Software Development and Automation, Distributed Systems and Networking, L2/L3 N
 %\item Delivered internal training sessions on automation techniques for network performance analysis.
 %\end{compactitem}
 
-\vspace{-6pt}
 \section{Projects Experience}
-\vspace{-.6cm}
+\vspace{-.7cm}
 \begin{outerlist}
 \item Built an \textbf{AI-based test report summarizer} integrating logs, metrics, and scribe the cdet defects.
 Assisted in the development AI tools for \textbf{test plan generation, defect analysis, and traceid analysis}.
-\item {\bf Networking:}\\
-Constructed network using {\bf Mininet} with multiple {\bf TRex Traffic Generator} at hosts running stateless, stateful and Client Server L7 traffic and obtained telemetry.[2021]\\
-Constructed {\bf \href{https://github.com/bidhovbizar/DCN-Simulation/tree/master/PythonCode}{Simulation Framework}} in {\bf Python} for large scale Data Center in Fat-Tree Topology. [2020]  \\ 
-Emulated Fat-Tree topology in Mininet to collect the telemetry data and observe congestion using {\bf Ryu} Controller and {\bf OpenVSwitches}.[2020]
+\item {\bf Networking:}
+        \begin{innerlist}
+        \item[$\diamond$] Constructed network using {\bf Mininet} with multiple {\bf TRex Traffic Generator} at hosts running stateless, stateful and Client Server L7 traffic and obtained telemetry.[2021]
+       \item[$\diamond$] Constructed {\bf \href{https://github.com/bidhovbizar/DCN-Simulation/tree/master/PythonCode}{Simulation Framework}} in {\bf Python} for the traffic testing of large scale Data Center in Fat-Tree Topology. [2020]
+       \item[$\diamond$] Emulated Fat-Tree topology in Mininet to collect the telemetry data and observe congestion using  {\bf Ryu} Controller and {\bf OpenVSwitches}.[2020]
+       % \item[$\diamond$] Advisor:     {\href{https://ece.iisc.ac.in/~parimal/}{Parimal Parag}}
+        
+        \end{innerlist}
 \vspace{-6pt}
 \end{outerlist}
 
