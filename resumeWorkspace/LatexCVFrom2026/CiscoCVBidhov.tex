@@ -30,7 +30,11 @@
 	%enumitem,%
 	hyperref%
 }
+
+%% This gives us fun enumeration environments. compactenum will be nice.
 \usepackage{paralist}
+% Change the margin here to 
+\setdefaultleftmargin{1.5em}{}{}{}{}{}
 
 % Layout: Puts the section titles on left side of page
 \reversemarginpar
@@ -85,9 +89,6 @@
 
 %% More layout: Get rid of indenting throughout entire document
 \setlength{\parindent}{0in}
-
-%% This gives us fun enumeration environments. compactenum will be nice.
-\usepackage{paralist}
 
 %% Reference the last page in the page number
 %
@@ -160,7 +161,7 @@
          \phantomsection\addcontentsline{toc}{section}{#1}%
          \hspace{0in}%
          \marginpar{
-         \raggedright \scshape #1}#2}
+         \raggedright \bfseries #1}#2}
 
 % An itemize-style list with lots of space between items
 \newenvironment{outerlist}[1][\enskip\textbullet]%
@@ -229,28 +230,33 @@ Distributed Systems and Networking, L2/L3 Network Protocols, Datacenter Life cyc
 
 \section{Professional Experience}
 \textbf{Automation Engineer/Systems Engineer, Intersight BU, Cisco} \hfill  Aug 2023 -- Present
+\textbf{Automation Engineering \& Platform / Infrastructure  }
 \begin{compactitem}
-\item Designed and implemented enhancements to \textbf{sanity automation frameworks}, including support for \textbf{emulator-based execution}, enabling unified test flows across hardware and virtual environments without code duplication.
-\item Optimized \textbf{testbed orchestration and resource utilization} by restructuring execution across regions (east/central), introducing parallelism and scheduling strategies that improved coverage and reduced runtime.
-\item Led multiple \textbf{CI/CD and build system fixes}, including resolving static analysis failures, upgrading \textbf{Python runtimes (3.7 $\rightarrow$ 3.12)}, fixing Docker image dependencies, and stabilizing Jenkins-based pipelines.
-\item Identified and resolved deep \textbf{framework-level issues} (e.g., recursion limits in pylint/astroid, schema mismatches, serialization gaps), improving robustness of large-scale code analysis and execution flows.
+\item Designed testplan 15+ and implemented automation scripts to enhance \textbf{sanity automation frameworks}, including support for \textbf{emulator-based execution}, enabling unified test flows across hardware and virtual environments without code duplication from scratch.
 \item Developed and enhanced \textbf{automation scripts for firmware management}, including upgrade/downgrade workflows, image selection logic, and integration with Jenkins parameters and release pipelines.
-\item Improved \textbf{observability and debugging capabilities} by enhancing alarm verification scripts, tech-support collection flows, and RCA tooling for faster identification of platform failures.
-\item Built internal \textbf{developer productivity tools}, including a \textbf{JIRA tracking and reporting system integrated with Webex}, enabling real-time visibility into team-wide task status and reducing coordination overhead.
-\item Contributed to large-scale \textbf{codebase refactoring and cleanup}, including removal of duplicate modules, consolidation of shared utilities, and alignment with evolving framework abstractions.
 \item Automated \textbf{infrastructure workflows} such as firmware image distribution to NFS, testbed configuration grouping, and environment provisioning, improving reliability of release validation setups.
-\item Investigated and resolved \textbf{cross-layer issues} spanning API inconsistencies, backend data model changes (camelCase vs snake\_case), and hardware-specific behavior differences across server generations.
+\item Investigated and fixed complex \textbf{platform-specific issues} involving firmware upgrades, inventory mismatches, claim/discovery failures, alarm schema changes, profile deployment semantics, and server state inconsistencies.
+\item Improved the \textbf{observability and debugging capabilities} of exisitng automation scripts by enhancing alarm verification scripts, tech-support collection flows, and RCA tooling for faster identification of platform failures.
+\item Built, enhanced, and stabilized \textbf{automation workflows and scripts} for server policies and actions, firmware upgrade paths, OS validation, adapter configuration, alarm verification, tech-support collection, and platform health checks.
+\end{compactitem}
+\textbf{Systems \& Backend-Oriented Work}
+\begin{compactitem}
+\item Worked across \textbf{automation, infrastructure, firmware, and backend layers}, including tracing failures into developer-owned components and contributing fixes where required, with exposure to \textbf{Go-based service debugging} in addition to Python automation.
 \item Led bring-up, recovery, and operationalization of multiple \textbf{hardware and lab environments}, including \textbf{UCSC and UCSX M7,M8 rack and blade server, GEL execution hosts 7.9 and 8.10, Fabric Interconnect, and appliance-based runs}, improving platform readiness for qualification and regression.
 \item Performed deep \textbf{root cause analysis} for platform, firmware, infrastructure, and automation issues across \textbf{ISM, IMM, FI, appliance, and cloud-managed environments}, helping block critical defects from reaching wider validation stages.
-\item Drove \textbf{release and patch qualification} efforts across multiple branches and platform variants, ranging from \textbf{Compute and FI infra bundle 4.2.xx till 6.0.2.xx and  validations}, ensuring readiness for production and staging pushes.
-\item Built, enhanced, and stabilized \textbf{automation workflows and scripts} for server policies and actions, firmware upgrade paths, OS validation, adapter configuration, alarm verification, tech-support collection, and platform health checks.
-\item Improved execution reliability by fixing issues in \textbf{Jenkins pipelines, feature-sanity jobs, GEL server execution host compatibility, logging, report portal integration, and Python version migration}, reducing friction in large-scale automated runs.
-\item Designed and developed internal \textbf{AI-assisted productivity tools}, including a \textbf{test report summarizer}, \textbf{daily sanity bot}, and integrations around \textbf{bug triage, CDets, and Kibana-based analysis}, to accelerate failure understanding and reporting.
-\item Contributed to \textbf{deepinsight/AI initiatives} by helping integrate internal tools such as \textbf{Bugscribe} and \textbf{test plan generation workflows}, and by presenting tooling concepts to management and internal teams.
-\item Investigated and fixed complex \textbf{platform-specific issues} involving firmware upgrades, inventory mismatches, claim/discovery failures, alarm schema changes, profile deployment semantics, and server state inconsistencies.
-\item Worked across \textbf{automation, infrastructure, firmware, and backend layers}, including tracing failures into developer-owned components and contributing fixes where required, with exposure to \textbf{Go-based service debugging} in addition to Python automation.
-\item Mentored new team members through \textbf{knowledge-transfer sessions}, onboarding support, and operational guidance, and conducted internal technical sessions on \textbf{coding etiquette, tooling, and engineering workflows}.
+\end{compactitem}
+\begin{compactitem}
+\item Led multiple \textbf{CI/CD and build system fixes}, including resolving static analysis failures, upgrading \textbf{Python runtimes (3.7 $\rightarrow$ 3.12)}, fixing Docker image dependencies, and stabilizing Jenkins-based pipelines.
+\item Identified and resolved deep \textbf{framework-level issues} (e.g., recursion limits in pylint, schema mismatches, serialization gaps), improving robustness of large-scale code analysis and execution flows.
 \item Partnered closely with \textbf{SRE, lab teams, developers, and QA/CRR stakeholders} to resolve blockers, validate fixes, and keep critical sanity and qualification flows running across shared environments.
+\item Drove \textbf{release and patch qualification} efforts across multiple branches and platform variants, ranging from \textbf{Compute and FI infra bundle 4.2.xx till 6.0.2.xx and  validations}, ensuring readiness for production and staging pushes.
+
+\item Improved execution reliability by fixing issues in \textbf{Jenkins pipelines, feature-sanity jobs, GEL server execution host compatibility, logging, report portal integration, and Python version migration}, reducing friction in large-scale automated runs.
+\item Designed and developed internal \textbf{AI-assisted productivity tools}, including a \textbf{test report summarizer}, \textbf{daily sanity bot}, and integrations around
+\item Built internal \textbf{Webex developer productivity tools}, including a \textbf{JIRA tracking and reporting system integrated with Webex}, enabling real-time visibility into team-wide task status and reducing coordination overhead. \textbf{bug triage, CDets, and Kibana-based analysis}, to accelerate failure understanding and reporting.
+\item Contributed to \textbf{deepinsight/AI initiatives} by helping integrate internal tools such as \textbf{Bugscribe} and \textbf{test plan generation workflows}, and by presenting tooling concepts to management and internal teams.
+
+\item Mentored new team members through \textbf{knowledge-transfer sessions}, onboarding support, and operational guidance, and conducted internal technical sessions on \textbf{coding etiquette, tooling, and engineering workflows}.
 \end{compactitem}
 
 \textbf{Software Engineer, Data Center BU, Cisco} \hfill July 2022 -- July 2023
